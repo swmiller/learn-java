@@ -35,6 +35,8 @@ public class JavaRolls {
         } else {
             System.out.println("Tough luck, you lose :(");
         }
+
+        scan.close();
     }
 
     private static void printRules() {
