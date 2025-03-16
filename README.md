@@ -6,6 +6,7 @@ Welcome to the repository for "The Complete Java Development Bootcamp" course. T
 
 - **Course Name:** The Complete Java Development Bootcamp
 - **Course URL:** [The Complete Java Development Bootcamp](https://www.udemy.com/course/the-complete-java-development-bootcamp/learn/lecture/47839859#overview)
+- **Workbooks:** [Getting Started](https://github.com/rslim087a/Java-Workbooks-Challenges/tree/main/01.%20Getting%20Started).
 
 ## Disclaimer
 
