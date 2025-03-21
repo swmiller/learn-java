@@ -4,15 +4,19 @@ public class TicTacToe {
 
   static Scanner scan = new Scanner(System.in);
 
+  /**
+   * The main method is the entry point of the Tic Tac Toe game.
+   * It initializes the game board, handles player turns, and determines the winner.
+   *
+   * @param args Command line arguments (not used in this program).
+   */
   public static void main(String[] args) {
 
     System.out.println("\nLet's play tic tac toe");
 
-    // Task 1: Create an array with three rows of '_' characters.
     String[][] board = new String[3][3]; // Opps. Used String instead of char. Will fix it later.
     initializeBoard(board);
 
-    // Task 2: Call the function printBoard();
     printBoard(board);
 
     boolean aWinner = false;
@@ -148,6 +152,21 @@ public class TicTacToe {
     return -1;
   }
 
+  
+  /**
+   * Checks each row of the TicTacToe board to determine if there is a winner.
+   * 
+   * This method iterates through each row of the given 2D array `board` and counts
+   * the occurrences of "X" and "O". If a row contains three "X"s or three "O"s,
+   * it returns the count (3 for "X" and -3 for "O"). If no row contains three of
+   * the same symbol, it returns 0.
+   * 
+   * @param board A 2D array representing the TicTacToe board.
+   * @return An integer indicating the result:
+   *         - 3 if a row contains three "X"s (indicating "X" wins),
+   *         - -3 if a row contains three "O"s (indicating "O" wins),
+   *         - 0 if no row contains three of the same symbol.
+   */
   private static int checkRows(String[][] board) {
     int count = 0;
     for (int i = 0; i < board.length; i++) {
@@ -169,6 +188,16 @@ public class TicTacToe {
     return count;
   }
 
+  /**
+   * Checks the columns of the TicTacToe board to determine if there is a winner.
+   *
+   * @param board A 2D array representing the TicTacToe board.
+   *              Each element should be either "X", "O", or an empty string.
+   * @return An integer representing the result:
+   *         - A positive value (3) if "X" has won in any column.
+   *         - A negative value (-3) if "O" has won in any column.
+   *         - Zero if there is no winner in any column.
+   */
   private static int checkColumns(String[][] board) {
     int count = 0;
     for (int i = 0; i < board.length; i++) {
@@ -190,6 +219,16 @@ public class TicTacToe {
     return count;
   }
 
+  /**
+   * Checks the left diagonal of the Tic-Tac-Toe board for a winning condition.
+   * The left diagonal is defined as the diagonal from the top-left to the bottom-right.
+   *
+   * @param board A 2D array representing the Tic-Tac-Toe board.
+   *              Each element of the array is expected to be either "X", "O", or an empty string.
+   * @return An integer representing the count of "X" and "O" in the left diagonal.
+   *         A positive count indicates more "X" than "O", a negative count indicates more "O" than "X",
+   *         and zero indicates an equal number of "X" and "O".
+   */
   private static int checkLeftDiagonal(String[][] board) {
     int count = 0;
     for (int i = 0; i < board.length; i++) {
@@ -203,6 +242,16 @@ public class TicTacToe {
     return count;
   }
 
+  /**
+   * Checks the right diagonal of the Tic-Tac-Toe board for a winning condition.
+   * The right diagonal is defined as the diagonal from the top-right to the bottom-left.
+   *
+   * @param board A 2D array representing the Tic-Tac-Toe board.
+   *              It is assumed to be a 3x3 array with each cell containing either "X", "O", or an empty string.
+   * @return An integer representing the count of "X" and "O" in the right diagonal.
+   *         A positive count indicates more "X" than "O", a negative count indicates more "O" than "X",
+   *         and zero indicates an equal number of "X" and "O".
+   */
   private static int checkRightDiagonal(String[][] board) {
     int count = 0;
     for (int i = 0; i < board.length; i++) {
@@ -215,6 +264,11 @@ public class TicTacToe {
     return count;
   }
 
+  /**
+   * Initializes the TicTacToe board by setting all positions to the default value "_".
+   *
+   * @param board The 2D array representing the TicTacToe board to be initialized.
+   */
   private static void initializeBoard(String[][] board) {
     for (int i = 0; i < board.length; i++) {
       for (int j = 0; j < board[i].length; j++) {
