@@ -1,18 +1,23 @@
+import model.Centrifuge;
+import model.Microscope;
+
 public class Main {
     public static void main(String[] args) {
-        City city1 = new City("New York", "USA", 8500000);
-        System.out.println(city1.getName());
+        Microscope microscope = new Microscope("Nikon", "E200", 2021, 1000);
+        System.out.println("Microscope Details:");
+        System.out.println("Manufacturer: " + microscope.getManufacturer());
+        System.out.println("Model: " + microscope.getModel());
+        System.out.println("Year: " + microscope.getYear());
+        System.out.println("Magnification: " + microscope.getMagnification());
+        System.out.println("Maintenance: " + microscope.performMaintenance());
+        System.out.println();
 
-        // Uncomment the following line to test invalid input for setName method
-        // city1.setName("");
-
-        // Uncomment the following line to test invalid input for setCountry method
-        // city1.setCountry("");
-
-        // Uncomment the following line to test invalid input for setPopulation method
-        // city1.setPopulation(-1);
-
-        // Uncomment the following line to test invalid input for the constructor
-        // City city2 = new City("", "USA", 8500000);
+        Centrifuge centrifuge = new Centrifuge("Eppendorf", "5424R", 2020, 15000);
+        System.out.println("Centrifuge Details:");
+        System.out.println("Manufacturer: " + centrifuge.getManufacturer());
+        System.out.println("Model: " + centrifuge.getModel());
+        System.out.println("Year: " + centrifuge.getYear());
+        System.out.println("Max RPM: " + centrifuge.getMaxRPM());
+        System.out.println("Maintenance: " + centrifuge.performMaintenance());
     }
 }

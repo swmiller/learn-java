@@ -1,24 +1,28 @@
+import model.Car;
+import model.Car.BodyType;
+import model.CarDealership;
+
 public class Main {
     public static void main(String[] args) {
-        Magazine magazine1 = new Magazine("Magazine 1", "Publisher 1", 1, 2020);
-        Magazine magazine2 = new Magazine("Magazine 2", "Publisher 2", 2, 2021);
+        Car car1 = new Car("Toyota", "Camry", BodyType.SEDAN, 2020, 30000);
+        Car car2 = new Car("Honda", "Civic", BodyType.SEDAN, 2021, 25000);
 
-        MagazineLibrary library = new MagazineLibrary();
+        CarDealership dealership = new CarDealership();
         
-        // Test the addMagazine method
-        library.addMagazine(magazine1);
-        library.addMagazine(magazine2);
+        // Test the addCar method
+        dealership.addCar(car1);
+        dealership.addCar(car2);
 
-        // Test the getMagazine method
-        Magazine retrievedMagazine = library.getMagazine(0);
-        System.out.println(retrievedMagazine.getTitle());
+        // Test the getCar method
+        Car retrievedCar = dealership.getCar(0);
+        System.out.println(retrievedCar.getMake() + " " + retrievedCar.getModel());
 
-        // Test the setMagazine method
-        Magazine newMagazine = new Magazine("Magazine 3", "Publisher 3", 3, 2022);
-        library.setMagazine(newMagazine, 0);
+        // Test the setCar method
+        Car newCar = new Car("Ford", "Mustang", BodyType.COUPE, 2022, 45000);
+        dealership.setCar(newCar, 0);
 
-        // Verify that the magazine was updated
-        retrievedMagazine = library.getMagazine(0);
-        System.out.println(retrievedMagazine.getTitle());
+        // Verify that the car was updated
+        retrievedCar = dealership.getCar(0);
+        System.out.println(retrievedCar.getMake() + " " + retrievedCar.getModel());
     }
 }

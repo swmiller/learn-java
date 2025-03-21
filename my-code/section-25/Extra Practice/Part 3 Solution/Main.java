@@ -1,80 +1,105 @@
+import model.Car;
+import model.Car.BodyType;
+import model.CarDealership;
+
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        String title = promptForTitle(scanner);
-        String publisher = promptForPublisher(scanner);
-        int issueNumber = promptForIssueNumber(scanner);
-        int publicationYear = promptForPublicationYear(scanner);
+        String make = promptForMake(scanner);
+        String model = promptForModel(scanner);
+        BodyType bodyType = promptForBodyType(scanner);
+        int year = promptForYear(scanner);
+        double price = promptForPrice(scanner);
 
-        Magazine newMagazine = new Magazine(title, publisher, issueNumber, publicationYear);
+        Car newCar = new Car(make, model, bodyType, year, price);
 
-        MagazineLibrary library = new MagazineLibrary();
-        library.addMagazine(newMagazine);
+        CarDealership dealership = new CarDealership();
+        dealership.addCar(newCar);
 
-        System.out.println("Magazine added to the library: " + newMagazine.getTitle());
+        System.out.println("Car added to the dealership: " + newCar.getMake() + " " + newCar.getModel());
     }
 
     public static boolean isNullOrBlank(String input) {
         return input == null || input.isBlank();
     }
 
-    public static boolean incorrectIssueNumber(int issueNumber) {
-        return issueNumber <= 0;
+    public static boolean invalidYear(int year) {
+        return year < Car.MIN_YEAR;
     }
 
-    public static boolean incorrectPublicationYear(int publicationYear) {
-        return publicationYear <= 0;
+    public static boolean invalidPrice(double price) {
+        return price < Car.MIN_PRICE || price > Car.MAX_PRICE;
     }
 
-    public static String promptForTitle(Scanner scanner) {
+    public static boolean invalidBodyType(String bodyType) {
+        try {
+            BodyType.valueOf(bodyType.toUpperCase());
+            return false;
+        } catch (IllegalArgumentException e) {
+            return true;
+        }
+    }
+
+    public static BodyType promptForBodyType(Scanner scanner) {
         while (true) {
-            System.out.print("\nPlease enter a valid title: ");
-            String title = scanner.nextLine();
-            if (!isNullOrBlank(title)) {
-                return title;
+            System.out.print("\nPlease enter a valid car body type: ");
+            String bodyType = scanner.nextLine();
+            if (!invalidBodyType(bodyType)) {
+                return BodyType.valueOf(bodyType.toUpperCase());
             }
         }
     }
 
-    public static String promptForPublisher(Scanner scanner) {
+    public static String promptForMake(Scanner scanner) {
         while (true) {
-            System.out.print("\nPlease enter a valid publisher: ");
-            String publisher = scanner.nextLine();
-            if (!isNullOrBlank(publisher)) {
-                return publisher;
+            System.out.print("\nPlease enter a valid car make: ");
+            String make = scanner.nextLine();
+            if (!isNullOrBlank(make)) {
+                return make;
             }
         }
     }
 
-    public static int promptForIssueNumber(Scanner scanner) {
+    public static String promptForModel(Scanner scanner) {
         while (true) {
-            System.out.print("\nPlease enter a valid issue number (greater than 0): ");
-            if (!scanner.hasNextInt()) {
+            System.out.print("\nPlease enter a valid car model: ");
+            String model = scanner.nextLine();
+            if (!isNullOrBlank(model)) {
+                return model;
+            }
+        }
+    }
+
+    public static int promptForYear(Scanner scanner) {
+        while (true) {
+            System.out.print("\nPlease enter a valid production year: ");
+             if (!scanner.hasNextInt()) {
                 scanner.next();
                 continue;
             }
-            int issueNumber = scanner.nextInt();
-            if (!incorrectIssueNumber(issueNumber)) {
-                return issueNumber;
+
+            int year = scanner.nextInt();
+            if (!invalidYear(year)) {
+                return year;
             }
         }
     }
 
-    public static int promptForPublicationYear(Scanner scanner) {
+    public static double promptForPrice(Scanner scanner) {
         while (true) {
-            System.out.print("\nPlease enter a valid publication year (greater than 0): ");
-            if (!scanner.hasNextInt()) {
+            System.out.print("\nPlease enter a valid car price: ");
+            if (!scanner.hasNextDouble()) {
                 scanner.next();
                 continue;
             }
-            int publicationYear = scanner.nextInt();
-            if (!incorrectPublicationYear(publicationYear)) {
-                return publicationYear;
+            double price = scanner.nextDouble();
+
+            if (!invalidPrice(price)) {
+                return price;
             }
         }
     }
-
 }

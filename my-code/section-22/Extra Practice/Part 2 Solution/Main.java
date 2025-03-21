@@ -1,30 +1,21 @@
 public class Main {
     public static void main(String[] args) {
-        Book book1 = new Book("To Kill a Mockingbird", "Harper Lee", 4.27, 15.99);
-        Book book2 = new Book("1984", "George Orwell", 4.17, 12.99);
-    
-        Store store = new Store();
-        store.addBook(book1);
-        store.addBook(book2);
-    
-        // Test the getBook method
-        Book retrievedBook = store.getBook(0);
-        System.out.println(retrievedBook.getTitle());
-    
-        // Test the setBook method
-        Book newBook = new Book("Moby-Dick", "Herman Melville", 3.5, 14.99);
-        store.setBook(0, newBook);
-    
-        // Verify that the book was updated
-        retrievedBook = store.getBook(0);
-        System.out.println(retrievedBook.getTitle());
-    
-        // Test the contains method
-        System.out.println(store.contains(book2)); // should be true before selling the book
-    
-        // Test the sellBook method
-        store.sellBook("1984");
-        System.out.println(store.contains(book2)); // should be false now
-    
+        CityPopulationTracker tracker = new CityPopulationTracker();
+        
+        // Test the addCity method
+        tracker.addCity(new City("New York", "USA", 8550405));
+        tracker.addCity(new City("Los Angeles", "USA", 3971883));
+
+        // Test the getCity method
+        City nyCity = tracker.getCity("New York");
+        System.out.println("Population of New York: " + nyCity.getPopulation());
+
+        // Test the setCity method
+        City updatedNyCity = new City("New York", "USA", 8600000);
+        tracker.setCity(updatedNyCity);
+
+        // Verify that the city data was updated
+        nyCity = tracker.getCity("New York");
+        System.out.println("Updated population of New York: " + nyCity.getPopulation());
     }
 }

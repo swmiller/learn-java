@@ -1,52 +1,23 @@
-import java.util.Scanner;
-
 public class Main {
 
-    static Store store = new Store();
-
     public static void main(String[] args) {
-        Movie[] movies = new Movie[] {
-            new Movie("The Shawshank Redemption", "BlueRay", 9.2),
-            new Movie("The Godfather", "BlueRay", 9.1),
-            new Movie("The Godfather: Part II", "DVD", 9.0),
-            new Movie("12 Angry Men", "DVD", 8.9),
-            new Movie("The Dark Knight", "BlueRay", 9.0),
-            new Movie("Schindler's List", "DVD", 8.9),
-            new Movie("The Lord of the Rings: The Return of the King", "BlueRay", 8.9),
-            new Movie("Pulp Fiction", "DVD", 8.8),
-            new Movie("The Good, the Bad and the Ugly", "DVD", 8.8),
-            new Movie("The Lord of the Rings: The Fellowship of the Ring", "DVD", 8.8)
-        };
+        
+        Team bulls = new Team("Chicago Bulls");
+        bulls.setPlayer("SHOOTING_GUARD", "Michael Jordan");
+        bulls.setPlayer("SMALL_FORWARD", "Scottie Pippen");
+        bulls.setPlayer("POWER_FORWARD", "Dennis Rodman");
+        bulls.setPlayer("CENTER", "Bill Wennington");
+        bulls.setPlayer("POINT_GUARD", "Randy Brown");
 
-        // TODO: Populate Store using a foreach loop. 
+        Team pistons = new Team("Detroit Pistons");
+        pistons.setPlayer("SHOOTING_GUARD", "Joe Dumars");
+        pistons.setPlayer("SMALL_FORWARD", "Grant Hill");
+        pistons.setPlayer("POWER_FORWARD", "Otis Thorpe");
+        pistons.setPlayer("CENTER", "William Bedford");
+        pistons.setPlayer("POINT_GUARD", "Isiah Thomas");
 
-        printStore();
-        userInput();
-
-    }
-
-    public static void userInput() {
-        Scanner scanner = new Scanner(System.in);
-
-        String status = "continue";
-        while (status.equals("continue")) {
-            System.out.print("\nPlease choose an integer between 0 - 9: ");
-            int choice = scanner.nextInt();
-            Movie movie = store.getMovie(choice);
-            System.out.print("Set a new rating for " + movie.getName() + ": ");
-            double rating = scanner.nextDouble();
-            movie.setRating(rating);
-            store.setMovie(choice, movie);
-            printStore();
-            System.out.print("To edit another rating, type: 'continue': ");
-            status = scanner.next();
-        }
-        scanner.close();
-    }
-
-    public static void printStore() {
-        System.out.println("********************************MOVIE STORE*******************************");
-        System.out.println(store);
+        Game game = new Game("Etihad Stadium");
+        game.begin(bulls, pistons);
     }
 
 }
