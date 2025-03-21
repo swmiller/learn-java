@@ -1,6 +1,6 @@
 # The Complete Java Development Bootcamp
 
-Welcome to the repository for "The Complete Java Development Bootcamp" course. This repository contains code examples and challenges from the course written by me.
+Welcome to the repository for "The Complete Java Development Bootcamp" course. This repository contains code examples and challenges from the course I wrote as a learning exercise.
 
 ## Course Information
 
@@ -10,6 +10,6 @@ Welcome to the repository for "The Complete Java Development Bootcamp" course. T
 
 ## Disclaimer
 
-The code provided in this repository is as is. You are free to use and modify the code for your own learning and projects. However, please note that the code may not be perfect and is intended for educational purposes only.
+The code provided in this repository is as is. You can use and modify the code for your learning and projects. However, please keep in mind that the code may not be perfect and is meant for educational purposes only.
 
 Happy coding!
