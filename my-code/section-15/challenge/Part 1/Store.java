@@ -14,7 +14,7 @@ public class Store {
     }
 
     public void printStore() {
-        System.out.println("********************************MOVIE STORE*******************************");
+        System.out.println("\n********************************MOVIE STORE*******************************");
         for (int i = 0; i < movies.length; i++) {
             if (movies[i] != null)
                 System.out.println(movies[i]);
