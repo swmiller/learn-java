@@ -46,6 +46,8 @@ public class Main {
 
             store.printStore();
         }
+
+        scanner.close();
     }
 
 }
