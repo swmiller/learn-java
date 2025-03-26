@@ -1,24 +1,86 @@
+import java.util.Scanner;
+
 public class Main {
+
     public static void main(String[] args) {
-        Magazine magazine1 = new Magazine("Magazine 1", "Publisher 1", 1, 2020);
-        Magazine magazine2 = new Magazine("Magazine 2", "Publisher 2", 2, 2021);
+        Scanner scanner = new Scanner(System.in);
+
+        String title = promptForTitle(scanner);
+        String publisher = promptForPublisher(scanner);
+        int issueNumber = promptForIssueNumber(scanner);
+        int publicationYear = promptForPublicationYear(scanner);
+
+        Magazine newMagazine = new Magazine(title, publisher, issueNumber, publicationYear);
 
         MagazineLibrary library = new MagazineLibrary();
+        library.addMagazine(newMagazine);
 
-        // Test the addMagazine method
-        library.addMagazine(magazine1);
-        library.addMagazine(magazine2);
+        System.out.println("Magazine added to the library: " + newMagazine.getTitle());
+    }
 
-        // Test the getMagazine method
-        Magazine retrievedMagazine = library.getMagazine(0);
-        System.out.println(retrievedMagazine.getTitle());
+    public static boolean isNullOrBlank(String input) {
+        return input == null || input.trim().isEmpty();
+    }
 
-        // Test the setMagazine method
-        Magazine newMagazine = new Magazine("Magazine 3", "Publisher 3", 3, 2022);
-        library.setMagazine(newMagazine, 0);
+    public static boolean incorrectIssueNumber(int issueNumber) {
+        return issueNumber <= 0;
+    }
 
-        // Verify that the magazine was updated
-        retrievedMagazine = library.getMagazine(0);
-        System.out.println(retrievedMagazine.getTitle());
+    public static String promptForTitle(Scanner input) {
+        String title;
+        do {
+            System.out.print("Enter the magazine title: ");
+            title = input.nextLine();
+            if (isNullOrBlank(title)) {
+                System.out.println("Title cannot be null or blank. Please try again.");
+            }
+        } while (isNullOrBlank(title));
+        return title;
+    }
+
+    public static String promptForPublisher(Scanner input) {
+        String publisher;
+        do {
+            System.out.print("Enter the magazine publisher: ");
+            publisher = input.nextLine();
+            if (isNullOrBlank(publisher)) {
+                System.out.println("Publisher cannot be null or blank. Please try again.");
+            }
+        } while (isNullOrBlank(publisher));
+        return publisher;
+    }
+
+    public static int promptForIssueNumber(Scanner input) {
+        int issueNumber;
+        do {
+            System.out.print("Enter the magazine issue number: ");
+            while (!input.hasNextInt()) {
+                System.out.println("Invalid input. Please enter a positive integer.");
+                input.next(); // Clear invalid input
+            }
+            issueNumber = input.nextInt();
+            input.nextLine(); // Consume the newline character
+            if (incorrectIssueNumber(issueNumber)) {
+                System.out.println("Issue number must be greater than 0. Please try again.");
+            }
+        } while (incorrectIssueNumber(issueNumber));
+        return issueNumber;
+    }
+
+    public static int promptForPublicationYear(Scanner input) {
+        int publicationYear;
+        do {
+            System.out.print("Enter the magazine publication year: ");
+            while (!input.hasNextInt()) {
+                System.out.println("Invalid input. Please enter a valid year.");
+                input.next(); // Clear invalid input
+            }
+            publicationYear = input.nextInt();
+            input.nextLine(); // Consume the newline character
+            if (publicationYear <= 0) {
+                System.out.println("Publication year must be a positive number. Please try again.");
+            }
+        } while (publicationYear <= 0);
+        return publicationYear;
     }
 }
