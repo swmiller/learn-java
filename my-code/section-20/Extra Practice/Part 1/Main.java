@@ -6,9 +6,16 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
 
         String title = promptForTitle(scanner);
+        System.out.println();
+
         String publisher = promptForPublisher(scanner);
+        System.out.println();
+
         int issueNumber = promptForIssueNumber(scanner);
+        System.out.println();
+
         int publicationYear = promptForPublicationYear(scanner);
+        System.out.println();
 
         Magazine newMagazine = new Magazine(title, publisher, issueNumber, publicationYear);
 
