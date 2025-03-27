@@ -1,7 +1,7 @@
 package shape;
 
 public abstract class Shape {
-    
+
     private double radius;
 
     public Shape(double radius) {
@@ -16,5 +16,8 @@ public abstract class Shape {
         this.radius = radius;
     }
 
+    public abstract double getArea();
+
+    public abstract double getVolume();
 
 }
