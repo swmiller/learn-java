@@ -15,5 +15,8 @@ public class Main {
 
         System.out.println("\nSKU \t\tPrice\tItem");
 
+        map.forEach((sku, item) -> {
+            System.out.println(sku + "\t" + item.getPrice() + "\t" + item.getName());
+        });
     }
 }
