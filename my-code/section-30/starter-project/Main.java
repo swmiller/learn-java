@@ -38,6 +38,8 @@ public class Main {
         System.out.println("Account G4567H Margin: " + marginAccountService.retrieveTradeAccount("G4567H").getMargin());
     }
 
+    // TODO: Fix transaction logic. Final totals are not correct.
+
     private static void applyTransactions() {
         try (var lines = java.nio.file.Files.lines(paths[1])) {
             lines.forEach(line -> {
