@@ -1,9 +1,9 @@
-package repository;
+package src.main.java.repository;
 
 import java.util.HashMap;
 import java.util.Map;
 
-import pojo.TradeAccount;
+import src.main.java.pojo.TradeAccount;
 
 public class TradeAccountRepository {
     private Map<String, TradeAccount> datastore = new HashMap<>();

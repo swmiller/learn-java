@@ -1,13 +1,14 @@
+package src.main.java;
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
-import pojo.CashAccount;
-import pojo.MarginAccount;
-import repository.TradeAccountRepository;
-import service.CashAccountService;
-import service.MarginAccountService;
+import src.main.java.pojo.CashAccount;
+import src.main.java.pojo.MarginAccount;
+import src.main.java.repository.TradeAccountRepository;
+import src.main.java.service.CashAccountService;
+import src.main.java.service.MarginAccountService;
 
 public class Main {
 

@@ -1,9 +1,9 @@
-package service;
+package src.main.java.service;
 
 import java.math.BigDecimal;
 
-import pojo.MarginAccount;
-import repository.TradeAccountRepository;
+import src.main.java.pojo.MarginAccount;
+import src.main.java.repository.TradeAccountRepository;
 
 public class MarginAccountService implements TradeAccountService {
 

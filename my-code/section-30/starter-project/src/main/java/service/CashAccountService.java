@@ -1,9 +1,9 @@
-package service;
+package src.main.java.service;
 
 import java.math.BigDecimal;
 
-import pojo.CashAccount;
-import repository.TradeAccountRepository;
+import src.main.java.pojo.CashAccount;
+import src.main.java.repository.TradeAccountRepository;
 
 public class CashAccountService implements TradeAccountService {
 
