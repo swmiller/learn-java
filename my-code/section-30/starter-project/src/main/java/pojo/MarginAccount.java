@@ -2,6 +2,8 @@ package src.main.java.pojo;
 
 import java.math.BigDecimal;
 
+import src.main.java.pojo.TradeAccount;
+
 public class MarginAccount extends TradeAccount {
     private BigDecimal margin;
 
